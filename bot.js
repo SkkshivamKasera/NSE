@@ -28,16 +28,22 @@ app.get('/start', (req, res) => {
     });
 
     bot.on("message", (msg) => {
-        // You can handle incoming messages here
         console.log("Received message:", msg);
     });
+
+    bot.onText(/\/message/, (msg) => {
+        const chatId = msg.chat.id
+        bot.sendMessage(chatId, "hii")
+    })
+
     bot.startPolling()
-    res.send("Bot polling started.");
+    const filePath = path.join(__dirname, 'bot.html');
+    res.sendFile(filePath);
 })
 
 app.get('/', (req, res) => {
-    const filePath = path.join(__dirname, 'index.html'); // Get the full path to the HTML file
-    res.sendFile(filePath); // Send the HTML file as the response
+    const filePath = path.join(__dirname, 'index.html');
+    res.sendFile(filePath);
 });
 
 const PORT = 3000;
