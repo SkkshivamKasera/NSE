@@ -94,7 +94,7 @@ app.get('/start', (req, res) => {
         }
     })
 
-    bot.onText(/\/df/, (msg) => {
+    bot.onText(/\/er/, (msg) => {
         const chatId = msg.chat.id
         const values = msg.text.split(' ').slice(1);
         const value1 = parseFloat(values[0]);
@@ -133,6 +133,11 @@ app.get('/start', (req, res) => {
         }else{
             bot.sendMessage(chatId, "Please Enter Valid Value")
         }
+    })
+
+    bot.onText(/\/help/, (msg) => {
+        const chatId = msg.chat.id
+        bot.sendMessage(chatId, "/Commands\n/sl entry_price current_price risk_percentage\n/er entry_price risk_percentage\n/cp entry_price risk_percentage capital\n/help for Help\nentry_price,current_price, risk_percentage, capital are must be numeric value")
     })
 
     bot.startPolling()
