@@ -137,7 +137,7 @@ app.get('/start', (req, res) => {
 
     bot.onText(/\/help/, (msg) => {
         const chatId = msg.chat.id
-        bot.sendMessage(chatId, "/Commands\n/sl entry_price current_price risk_percentage\n/er entry_price risk_percentage\n/cp entry_price risk_percentage capital\n/help for Help\nentry_price,current_price, risk_percentage, capital are must be numeric value")
+        bot.sendMessage(chatId, "Commands\n/sl entry_price current_price risk_percentage\n/er entry_price risk_percentage\n/cp entry_price risk_percentage capital\n/dev stop_loss_of_bank_nifty_strike_price option_price delta_of_option_price\n/help for Help\nentry_price,current_price, risk_percentage, capital are must be numeric value")
     })
 
     bot.startPolling()
